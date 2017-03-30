@@ -152,6 +152,9 @@
         <xsl:variable name="cell-bg" select="str:tokenize(substring-after(@class, 'ms-fill-'), ' ')[1]"/>
         <w:shd w:val="clear" w:color="auto" w:fill="{$cell-bg}" />
       </xsl:if>
+      <xsl:if test="@colspan &gt; 1">
+        <w:gridSpan w:val="{@colspan}"/>
+      </xsl:if>
     </w:tcPr>
   </xsl:template>
 
