@@ -43,6 +43,11 @@ def fixture_path(folder, file_name, extension)
   File.join(File.dirname(__FILE__), 'fixtures', folder, "#{file_name}.#{extension}")
 end
 
+#used to temporarily save documents for testing
+def tmp_path(filename)
+  File.join(File.dirname(__FILE__), 'tmp', "#{filename}.docx")
+end
+
 def compare_content_of_body?(wordml)
   wordml !~ /<?xml version/
 end

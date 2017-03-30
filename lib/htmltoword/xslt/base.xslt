@@ -19,7 +19,7 @@
   <xsl:include href="./functions.xslt"/>
   <xsl:include href="./tables.xslt"/>
   <xsl:include href="./links.xslt"/>
-
+  <xsl:include href="./images.xslt"/>
   <xsl:template match="/">
     <xsl:apply-templates />
   </xsl:template>
@@ -203,6 +203,12 @@
       <xsl:choose>
         <xsl:when test="self::a[starts-with(@href, 'http://') or starts-with(@href, 'https://')]">
           <xsl:call-template name="link" />
+        </xsl:when>
+        <xsl:when test="self::img">
+          <xsl:comment>
+            This template adds images.
+          </xsl:comment>
+          <xsl:call-template name="image"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates />

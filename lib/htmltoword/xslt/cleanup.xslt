@@ -23,7 +23,6 @@
   <xsl:template match="command"/>
   <xsl:template match="font"/>
   <xsl:template match="iframe"/>
-  <xsl:template match="img"/>
   <xsl:template match="isindex"/>
   <xsl:template match="map"/>
   <xsl:template match="noframes"/>

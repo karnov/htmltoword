@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'nokogiri'
 require 'zip'
+require 'open-uri'
 require_relative 'htmltoword/configuration'
 
 module Htmltoword

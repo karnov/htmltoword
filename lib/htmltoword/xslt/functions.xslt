@@ -31,4 +31,7 @@
       </xsl:choose>
     </func:result>
   </func:function>
+
+  <!-- template as function used to return the relationship id of the element (currently links or images) -->
+  <xsl:template name="relationship-id">rId<xsl:value-of select="count(preceding::a[starts-with(@href, 'http://') or starts-with(@href, 'https://')])+count(preceding::img)+8"/></xsl:template>
 </xsl:stylesheet>
