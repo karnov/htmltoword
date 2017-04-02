@@ -313,6 +313,12 @@
             <w:vertAlign w:val="superscript"/>
           </w:rPr>
         </xsl:if>
+        <xsl:if test="contains(../@class, 'ms-text-color-')">
+          <w:rPr>
+            <xsl:variable name="text-color" select="str:tokenize(substring-after(../@class, 'ms-text-color-'), ' ')[1]"/>
+            <w:color w:val="{$text-color}"/>
+          </w:rPr>
+        </xsl:if>
         <w:t xml:space="preserve"><xsl:value-of select="."/></w:t>
       </w:r>
     </xsl:if>
