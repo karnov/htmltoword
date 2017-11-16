@@ -84,7 +84,7 @@ module Htmltoword
           n = parent.next
           n.children.inject(0) do |sum, ch|
             if sum == cols
-              ch.add_previous_sibling '<td vmerge></td>'
+              ch.add_previous_sibling "<td vmerge colspan=\"#{e.attributes['colspan'].value || 1}\"></td>"
               break
             end
             sum += ch.attributes['colspan'].value.to_i || 1
