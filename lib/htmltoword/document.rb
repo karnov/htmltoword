@@ -78,7 +78,7 @@ module Htmltoword
       source.xpath('//td[@rowspan > 1]').each do |e|
         cols = 0
         prev = e
-        cols += prev.attrubutes['colspan'].value.to_i || 1 while(prev = prev.previous)
+        cols += prev.attributes['colspan'].value.to_i || 1 while(prev = prev.previous)
         parent = e.parent
         (e.attributes['rowspan'].value.to_i - 1).times do
           n = parent.next
