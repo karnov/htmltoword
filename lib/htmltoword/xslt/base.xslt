@@ -96,9 +96,18 @@
       <w:pPr>
         <w:pStyle w:val="Heading{substring(name(.),$length)}"/>
       </w:pPr>
-      <w:r>
-        <w:t xml:space="preserve"><xsl:value-of select="."/></w:t>
-      </w:r>
+      <xsl:for-each select="node()">
+        <xsl:choose>
+          <xsl:when test="self::a[starts-with(@href, 'http://') or starts-with(@href, 'https://')]">
+            <xsl:call-template name="link" />
+          </xsl:when>
+          <xsl:otherwise>
+            <w:r>
+              <w:t xml:space="preserve"><xsl:value-of select="."/></w:t>
+            </w:r>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
     </w:p>
   </xsl:template>
 

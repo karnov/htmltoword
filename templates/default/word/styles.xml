@@ -184,7 +184,7 @@
       <w:rFonts w:eastAsiaTheme="majorEastAsia" w:cstheme="majorBidi"/>
       <w:b/>
       <w:bCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:sz w:val="28"/>
       <w:szCs w:val="28"/>
       <w:lang w:eastAsia="ja-JP"/>
@@ -209,7 +209,7 @@
       <w:rFonts w:eastAsiaTheme="majorEastAsia" w:cstheme="majorBidi"/>
       <w:b/>
       <w:bCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:sz w:val="20"/>
       <w:lang w:eastAsia="ja-JP"/>
     </w:rPr>
@@ -233,7 +233,7 @@
       <w:rFonts w:eastAsiaTheme="majorEastAsia" w:cstheme="majorBidi"/>
       <w:b/>
       <w:bCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:szCs w:val="18"/>
       <w:lang w:eastAsia="ja-JP"/>
     </w:rPr>
@@ -257,7 +257,7 @@
       <w:rFonts w:eastAsiaTheme="majorEastAsia" w:cstheme="majorBidi"/>
       <w:i/>
       <w:iCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:szCs w:val="18"/>
       <w:lang w:eastAsia="ja-JP"/>
     </w:rPr>
@@ -410,7 +410,7 @@
       <w:rFonts w:ascii="Arial" w:eastAsiaTheme="majorEastAsia" w:hAnsi="Arial" w:cstheme="majorBidi"/>
       <w:b/>
       <w:bCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:sz w:val="28"/>
       <w:szCs w:val="28"/>
     </w:rPr>
@@ -453,7 +453,7 @@
       <w:rFonts w:ascii="Arial" w:eastAsiaTheme="majorEastAsia" w:hAnsi="Arial" w:cstheme="majorBidi"/>
       <w:i/>
       <w:iCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:sz w:val="18"/>
       <w:szCs w:val="18"/>
     </w:rPr>
@@ -468,7 +468,7 @@
       <w:rFonts w:ascii="Arial" w:eastAsiaTheme="majorEastAsia" w:hAnsi="Arial" w:cstheme="majorBidi"/>
       <w:b/>
       <w:bCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:sz w:val="18"/>
       <w:szCs w:val="18"/>
     </w:rPr>
@@ -483,7 +483,7 @@
       <w:rFonts w:ascii="Arial" w:eastAsiaTheme="majorEastAsia" w:hAnsi="Arial" w:cstheme="majorBidi"/>
       <w:b/>
       <w:bCs/>
-      <w:caps/>
+      <w:caps w:val="false"/>
       <w:sz w:val="20"/>
       <w:szCs w:val="20"/>
     </w:rPr>

@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe "XSLT for Links" do
-
-  it "transforms heading tags in a div" do
+  it "transforms link tags in a div" do
     html = <<-EOL
   <!DOCTYPE html>
   <html>
@@ -134,6 +133,51 @@ describe "XSLT for Links" do
     <Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://someotherlink3.com" TargetMode="External" Id="rId11"/>
     <Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://listlink.com" TargetMode="External" Id="rId12"/>
   </Relationships>
+    EOL
+
+    compare_resulting_wordml_with_expected(html, expected_wordml.strip)
+    compare_relations_xml(html, expected_relations_xml)
+  end
+
+  it 'transforms heading link' do
+    html =<<-EOS
+      <body>
+        <h2>Link to external resource <a href="https://external.com">External</a></h2>
+      </body>
+    EOS
+
+    expected_wordml = <<-EOL
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Link to external resource </w:t>
+      </w:r>
+      <w:hyperlink r:id="rId8">
+        <w:r>
+          <w:rPr>
+            <w:rStyle w:val="Hyperlink"/>
+            <w:color w:val="000080"/>
+            <w:u w:val="single"/>
+          </w:rPr>
+          <w:t xml:space="preserve">External</w:t>
+        </w:r>
+      </w:hyperlink>
+    </w:p>
+    EOL
+
+    expected_relations_xml = <<-EOL
+    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+      <Relationship Id="rId3" Type="http://schemas.microsoft.com/office/2007/relationships/stylesWithEffects" Target="stylesWithEffects.xml"/>
+      <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+      <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/webSettings" Target="webSettings.xml"/>
+      <Relationship Id="rId6" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
+      <Relationship Id="rId7" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/>
+      <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering" Target="numbering.xml"/>
+      <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+      <Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="https://external.com" TargetMode="External" Id="rId8"/>
+    </Relationships>
     EOL
 
     compare_resulting_wordml_with_expected(html, expected_wordml.strip)
