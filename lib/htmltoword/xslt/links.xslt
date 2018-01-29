@@ -25,7 +25,7 @@
         <w:rPr>
           <w:rStyle w:val="Hyperlink"/>
           <w:color w:val="000080"/>
-          <w:u w:val="none"/>
+          <w:u w:val="single"/>
         </w:rPr>
         <w:t xml:space="preserve"><xsl:value-of select="."/></w:t>
       </w:r>
