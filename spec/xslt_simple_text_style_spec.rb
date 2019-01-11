@@ -148,10 +148,9 @@ describe "XSLT to make text bold or italic" do
   <html>
   <head></head>
   <body>
-    <div> Testing <span class="ms-text-color-eeeeee">grey</span> text</div>
-    <p> Testing <span class="ms-text-color-eeeeee">grey</span> text</p>
-    <span> Testing <span class="ms-text-color-eeeeee">grey</span> text</span>
-    <div class="ms-text-color-000000">Testing black</div>
+    <div> Testing <span class="h" data-style="eeeeee">grey</span> text</div>
+    <p> Testing <span class="h" data-style="eeeeee">grey</span> text</p>
+    <span> Testing <span class="h" data-style="eeeeee">grey</span> text</span>
   </body>
   </html>
     EOL
@@ -196,14 +195,6 @@ describe "XSLT to make text bold or italic" do
     </w:r>
     <w:r>
       <w:t xml:space="preserve"> text</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:r>
-      <w:rPr>
-        <w:color w:val="000000"/>
-      </w:rPr>
-      <w:t xml:space="preserve">Testing black</w:t>
     </w:r>
   </w:p>
     EOL

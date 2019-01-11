@@ -134,10 +134,11 @@ All standard html elements are supported and will create the closest equivalent 
 
 ### Highlighting text
 
-You can add highlighting to text by wrapping it in a span with class h and adding a data style with a color that wordml supports (http://www.schemacentral.com/sc/ooxml/t-w_ST_HighlightColor.html) ie:
+You can add highlighting to text by wrapping it in a span with class h and adding a data style with a color that wordml supports (http://www.schemacentral.com/sc/ooxml/t-w_ST_HighlightColor.html) or a HEX color value ie:
 
 ```html
 <span class="h" data-style="green">This text will have a green highlight</span>
+<span class="h" data-style="B2B2B2">This text will have a light gray highlight</span>
 ```
 
 ### Page breaks
