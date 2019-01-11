@@ -1,0 +1,23 @@
+<w:p>
+  <w:r>
+    <w:t xml:space="preserve">Firefox</w:t>
+  </w:r>
+</w:p>
+<w:p>
+<w:r>
+  <w:t xml:space="preserve">Mozilla Firefox</w:t>
+</w:r>
+</w:p>
+<w:p>
+  <w:r>
+    <w:t xml:space="preserve">Fx</w:t>
+  </w:r>
+</w:p>
+<w:p>
+<w:pPr>
+  <w:ind w:left="720"/>
+</w:pPr>
+<w:r>
+  <w:t xml:space="preserve">A free, open source, cross-platform, graphical web browser developed by the Mozilla Corporation and hundreds of volunteers. </w:t>
+</w:r>
+</w:p>

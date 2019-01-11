@@ -1,3 +1,3 @@
 module Htmltoword
-  VERSION = '0.6.0'
+  VERSION = '1.1.0'
 end

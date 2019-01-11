@@ -18,7 +18,7 @@ module Htmltoword
 
     def send_file
       document = Htmltoword::Document.create(@content, @word_template, @use_extras)
-      @context.send_data(document, filename: @file_name, type: Mime::DOCX, disposition: @disposition)
+      @context.send_data(document, filename: @file_name, type: Mime[:docx], disposition: @disposition)
     end
 
     private

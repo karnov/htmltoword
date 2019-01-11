@@ -13,6 +13,11 @@ describe "XSLT to include images" do
     <p><img src="https://placehold.it/250x150.png" data-height="150px" style="width:250px; height:100px"></p>
     <p><img src="https://placehold.it/150x150.png" data-width="150px" data-height="150px" style="width:250px; height:100px"></p>
     <p><img src="https://placehold.it/150x150.png" data-width="150px" data-height="150px"></p>
+    <p><img src="https://placehold.it/150x150.png"></p>
+    <p><img src="https://placehold.it/150x150.png" style="border-radius: 8px;"></p>
+    <div class="mediaobject">
+      <img alt="" src="/placehold.it/150x150.png">
+    </div>
     </body>
   </html>
     EOL
@@ -276,12 +281,13 @@ describe "XSLT to include images" do
       </wp:inline>
     </w:drawing>
     </w:p>
+    <w:p/>
+    <w:p/>
+    <w:p/>
     EOL
-
 
     compare_resulting_wordml_with_expected(html, expected_wordml.strip)
   end
-
 
   it "generates correct relations" do
     html = <<-EOL

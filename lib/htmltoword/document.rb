@@ -91,7 +91,8 @@ module Htmltoword
 
     def replace_files(html, extras = false)
       html = '<body></body>' if html.nil? || html.empty?
-      source = Nokogiri::HTML(html.gsub(/>\s+</, '><'))
+      original_source = Nokogiri::HTML(html.gsub(/>\s+</, '><'))
+      source = xslt(stylesheet_name: 'cleanup').transform(original_source)
       transform_and_replace(source, xslt_path('numbering'), Document.numbering_xml_file)
       transform_and_replace(source, xslt_path('relations'), Document.relations_xml_file)
       transform_doc_xml(source, extras)

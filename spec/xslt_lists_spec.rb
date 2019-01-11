@@ -649,6 +649,10 @@ describe "XSLT supporting lists" do
   end
 
   it 'handles inline elements inside a div' do
-    compare_transformed_files('lists', 'lists_inline_elements', extras: false)
+    compare_transformed_files(
+      test: 'lists',
+      test_file_name: 'lists_inline_elements',
+      extras: false
+    )
   end
 end

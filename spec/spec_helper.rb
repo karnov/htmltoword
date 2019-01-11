@@ -5,9 +5,9 @@ require 'htmltoword'
 include Htmltoword::XSLTHelper
 include Htmltoword::TemplatesHelper
 
-def compare_transformed_files(test, test_file_name, extras: false)
-  source = File.read(fixture_path(test, test_file_name, :html))
-  expected_content = File.read(fixture_path(test, test_file_name, :xml))
+def compare_transformed_files(test:, test_file_name:, extras: false)
+  source = File.read(fixture_path(test, test_file_name, :html), encoding: 'utf-8')
+  expected_content = File.read(fixture_path(test, test_file_name, :xml), encoding: 'utf-8')
   compare_resulting_wordml_with_expected(source, expected_content, extras: extras)
 end
 
@@ -16,6 +16,7 @@ def compare_resulting_wordml_with_expected(html, resulting_wordml, extras: false
   result = Htmltoword::Document.new(template_file(nil)).transform_doc_xml(source, extras)
   result.gsub!(/\s*<!--(.*?)-->\s*/m, '')
   result = remove_declaration(result)
+
   expect(remove_whitespace(result)).to eq(remove_whitespace(resulting_wordml))
 end
 
@@ -37,6 +38,14 @@ def compare_relations_xml(html, expected_xml)
   expect(remove_whitespace(result.to_s)).to eq(remove_whitespace(expected_xml))
 end
 
+def check_link_text(html, resulting_wordml, extras: false)
+  source = Nokogiri::HTML(html.gsub(/>\s+</, '><'))
+  result = Htmltoword::Document.new(template_file(nil)).transform_doc_xml(source, extras)
+  result.gsub!(/\s*<!--(.*?)-->\s*/m, '')
+  result = remove_declaration(result)
+  expect(remove_whitespace_for_link_check(result)).to eq(remove_whitespace_for_link_check(resulting_wordml))
+end
+
 private
 
 def fixture_path(folder, file_name, extension)
@@ -53,7 +62,11 @@ def compare_content_of_body?(wordml)
 end
 
 def remove_whitespace(wordml)
-  wordml.gsub(/\s+/, ' ').gsub(/>\s+</, '><').strip
+  wordml.gsub(/\s+/, ' ').gsub(/(?<keep>>)\s+|\s+(?<keep><)/, '\k<keep>').strip
+end
+
+def remove_whitespace_for_link_check(wordml)
+  wordml.gsub(/^\s+/, '')
 end
 
 def remove_declaration(wordml)

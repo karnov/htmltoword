@@ -22,9 +22,7 @@ describe "XSLT for Links" do
       <a href="http://someotherlink2.com">Other link text 2.</a>
       <div>
         <a href="http://someotherlink3.com">Other link text 3.</a>
-      </div>
-      Some text
-      <ul>
+      </div> Some text <ul>
         <li>First item: <a href="http://listlink.com">List link text.</a></li>
       </ul>
     </div>
@@ -36,8 +34,7 @@ describe "XSLT for Links" do
     <w:r>
       <w:t xml:space=\"preserve\">This is internal link.</w:t>
     </w:r>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:hyperlink r:id="rId8">
       <w:r>
         <w:rPr>
@@ -48,8 +45,7 @@ describe "XSLT for Links" do
         <w:t xml:space="preserve">Link text.</w:t>
       </w:r>
     </w:hyperlink>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:hyperlink r:id="rId9">
       <w:r>
         <w:rPr>
@@ -60,13 +56,11 @@ describe "XSLT for Links" do
         <w:t xml:space="preserve">Other link text.</w:t>
       </w:r>
     </w:hyperlink>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:r>
       <w:t xml:space=\"preserve\">This is other internal link.</w:t>
     </w:r>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:hyperlink r:id=\"rId10\">
       <w:r>
         <w:rPr>
@@ -77,8 +71,7 @@ describe "XSLT for Links" do
         <w:t xml:space=\"preserve\">Other link text 2.</w:t>
       </w:r>
     </w:hyperlink>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:hyperlink r:id=\"rId11\">
       <w:r>
         <w:rPr>
@@ -89,13 +82,11 @@ describe "XSLT for Links" do
         <w:t xml:space=\"preserve\">Other link text 3.</w:t>
       </w:r>
     </w:hyperlink>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:r>
       <w:t xml:space="preserve"> Some text </w:t>
     </w:r>
-  </w:p>
-  <w:p>
+  </w:p><w:p>
     <w:pPr>
       <w:pStyle w:val="ListParagraph"/>
       <w:numPr>
@@ -138,5 +129,7 @@ describe "XSLT for Links" do
 
     compare_resulting_wordml_with_expected(html, expected_wordml.strip)
     compare_relations_xml(html, expected_relations_xml)
+    check_link_text(html, expected_wordml)
+
   end
 end

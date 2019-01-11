@@ -1241,6 +1241,10 @@ describe 'Bigger and a bit more complex documents' do
   end
 
   it 'transforms other nestings' do
-    compare_transformed_files('complex', 'nestings', extras: false)
+    compare_transformed_files(
+      test: 'complex',
+      test_file_name: 'nestings',
+      extras: false
+    )
   end
 end

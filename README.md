@@ -61,7 +61,7 @@ def my_action
   # ...
   respond_with(@object, filename: 'my_file.docx', word_template: 'my_template.docx')
   # Alternatively, if you don't want to create the .docx.erb template you could
-  respond_with(@object, content: '<html><body>some html</body></html>', filename: 'my_file.docx')
+  respond_with(@object, content: '<html><head></head><body><p>Hello</p></body></html>', filename: 'my_file.docx')
 end
 
 def my_action2
@@ -70,7 +70,7 @@ def my_action2
     format.docx do
       render docx: 'my_view', filename: 'my_file.docx'
       # Alternatively, if you don't want to create the .docx.erb template you could
-      render docx: 'my_file.docx', content: '<html><body>some html</body></html>'
+      render docx: 'my_file.docx', content: '<html><head></head><body><p>Hello</p></body></html>'
     end
   end
 end
@@ -147,6 +147,21 @@ To create page breaks simply add a div with class -page-break ie:
 ```html
 <div class="-page-break"></div>
 ````
+
+### Images
+Support for images is very basic and is only possible for external images(i.e accessed via URL). If the image doesn't 
+have correctly defined it's width and height it won't be included in the document
+
+**Limitations:**
+- Images are external i.e. pictures accessed via URL, not stored within document
+- only sizing is customisable
+
+Examples:
+```html
+<img src="http://placehold.it/250x100.png" style="width: 250px; height: 100px">
+<img src="http://placehold.it/250x100.png" data-width="250px" data-height="100px">
+<img src="http://placehold.it/250x100.png" data-height="150px" style="width:250px; height:100px">
+```
 
 ## Contributing / Extending
 
