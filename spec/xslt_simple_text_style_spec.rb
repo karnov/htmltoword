@@ -142,6 +142,65 @@ describe "XSLT to make text bold or italic" do
     compare_resulting_wordml_with_expected(html, expected_wordml.strip)
   end
 
+  it "transforms text color classes" do
+    html = <<-EOL
+  <!DOCTYPE html>
+  <html>
+  <head></head>
+  <body>
+    <div> Testing <span class="h" data-style="eeeeee">grey</span> text</div>
+    <p> Testing <span class="h" data-style="eeeeee">grey</span> text</p>
+    <span> Testing <span class="h" data-style="eeeeee">grey</span> text</span>
+  </body>
+  </html>
+    EOL
+    expected_wordml = <<-EOL
+  <w:p>
+    <w:r>
+      <w:t xml:space="preserve"> Testing </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:color w:val="eeeeee"/>
+      </w:rPr>
+      <w:t xml:space="preserve">grey</w:t>
+    </w:r>
+    <w:r>
+      <w:t xml:space="preserve"> text</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:r>
+      <w:t xml:space="preserve"> Testing </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:color w:val="eeeeee"/>
+      </w:rPr>
+      <w:t xml:space="preserve">grey</w:t>
+    </w:r>
+    <w:r>
+      <w:t xml:space="preserve"> text</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:r>
+      <w:t xml:space="preserve"> Testing </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:color w:val="eeeeee"/>
+      </w:rPr>
+      <w:t xml:space="preserve">grey</w:t>
+    </w:r>
+    <w:r>
+      <w:t xml:space="preserve"> text</w:t>
+    </w:r>
+  </w:p>
+    EOL
+  compare_resulting_wordml_with_expected(html, expected_wordml.strip)
+  end
+
   it "transforms all combinations of b, strong, em and italic within div and p" do
     html = <<-EOL
   <!DOCTYPE html>

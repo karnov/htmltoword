@@ -16,9 +16,10 @@ Returns a page break
 
     <span class="h" data-style="chosen-color">Highlighted Text Here</span>
 
-Will highlight text
+Will highlight text with predefined color
 
-As per: http://www.schemacentral.com/sc/ooxml/t-w_ST_HighlightColor.html these are your color choices
+You can specify the color as 6 character HEX color (e.g. `FFFFFF` for white, `FF00000` for red) or one of the following
+text values: 
 
 Valid value | Description
 -------------- | ----------------
@@ -39,6 +40,8 @@ darkYellow | Dark Yellow Highlighting Color
 darkGray | Dark Gray Highlighting Color
 lightGray | Light Gray Highlighting Color
 none | No Text Highlighting
+
+As per: http://www.schemacentral.com/sc/ooxml/t-w_ST_HighlightColor.html
 
 ### Text Align (not in readme)
 

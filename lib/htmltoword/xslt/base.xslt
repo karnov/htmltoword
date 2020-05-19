@@ -266,12 +266,20 @@
         <xsl:otherwise><xsl:value-of select="./@data-style"/></xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+    <xsl:variable name="colorList" select="'black blue cyan green magenta red yellow white darkBlue darkCyan darkGreen darkMagenta darkRed darkYellow darkGray lightGray'" />
     <xsl:choose>
       <xsl:when test="preceding-sibling::h1 or preceding-sibling::h2 or preceding-sibling::h3 or preceding-sibling::h4 or preceding-sibling::h5 or preceding-sibling::h6 or preceding-sibling::table or preceding-sibling::p or preceding-sibling::ol or preceding-sibling::ul or preceding-sibling::div or following-sibling::h1 or following-sibling::h2 or following-sibling::h3 or following-sibling::h4 or following-sibling::h5 or following-sibling::h6 or following-sibling::table or following-sibling::p or following-sibling::ol or following-sibling::ul or following-sibling::div">
         <w:p>
           <w:r>
             <w:rPr>
-              <w:highlight w:val="{$color}"/>
+              <xsl:choose>
+                <xsl:when test="contains(concat(' ', $colorList, ' '),concat(' ', $color, ' '))">
+                  <w:highlight w:val="{$color}"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <w:color w:val="{$color}"/>
+                </xsl:otherwise>
+              </xsl:choose>
             </w:rPr>
             <w:t xml:space="preserve"><xsl:value-of select="."/></w:t>
           </w:r>
@@ -280,7 +288,14 @@
       <xsl:otherwise>
         <w:r>
           <w:rPr>
-            <w:highlight w:val="{$color}"/>
+            <xsl:choose>
+              <xsl:when test="contains(concat(' ', $colorList, ' '),concat(' ', $color, ' '))">
+                <w:highlight w:val="{$color}"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <w:color w:val="{$color}"/>
+              </xsl:otherwise>
+            </xsl:choose>
           </w:rPr>
           <w:t xml:space="preserve"><xsl:value-of select="."/></w:t>
         </w:r>
